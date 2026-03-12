@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logic Bomb Lab | Interactive Simulation</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@300;500;700&family=Space+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="cursor-glow"></div>
+    <div class="grid-background"></div>
+
+    <nav class="glass-nav">
+        <div class="logo">LOGIC<span>BOMB</span></div>
+        <ul class="nav-links">
+            <li><a href="../index.html">← Back to Hub</a></li>
+            <li><a href="#simulate" class="active">Simulate</a></li>
+            <li><a href="#concept">The Concept</a></li>
+            <li><a href="#prevention">Prevention</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <header class="lab-header fade-in">
+            <h1>Logic Bomb Simulation</h1>
+            <p class="subtitle">Understand how malicious code can sit dormant until a specific condition "detonates" it.</p>
+        </header>
+
+        <!-- Simulation Section -->
+        <section id="simulate" class="lab-section fade-in">
+            <div class="sim-grid">
+                <!-- System Dashboard -->
+                <div class="glass-card server-module">
+                    <div class="module-header">
+                        <span class="icon">🖥️</span>
+                        <h3>Corporate File Server</h3>
+                    </div>
+                    <div class="system-status">
+                        <div class="status-badge" id="system-status-indicator">HEALTHY</div>
+                        <div class="file-count">Files Online: <span id="count-val">4,285</span></div>
+                    </div>
+                    
+                    <div class="file-explorer" id="file-list">
+                        <!-- Simulated scrolling list of files -->
+                        <div class="file-item">payroll_2026.db</div>
+                        <div class="file-item">employee_records.enc</div>
+                        <div class="file-item">project_quantum.pdf</div>
+                        <div class="file-item">legal_contracts.zip</div>
+                        <div class="file-item">backup_primary.bak</div>
+                        <div class="file-item">security_logs.csv</div>
+                        <div class="file-item">hr_policy.docx</div>
+                        <div class="file-item">revenue_q1.xlsx</div>
+                    </div>
+
+                    <div class="admin-panel">
+                        <p class="sm-text">Administrative Actions:</p>
+                        <button id="delete-admin-btn" class="btn danger-outline">Terminate IT Director (Admin)</button>
+                    </div>
+                </div>
+
+                <!-- Attacker Injector -->
+                <div class="glass-card injector-module">
+                    <div class="module-header">
+                        <span class="icon">💣</span>
+                        <h3>Payload Configurator</h3>
+                    </div>
+                    <p class="sm-text">Set the dormant trigger and the malicious payload.</p>
+                    
+                    <div class="config-group">
+                        <label>Detonation Trigger</label>
+                        <select id="trigger-select">
+                            <option value="admin-check">Admin ID Check (Account removal)</option>
+                            <option value="time-check">Time/Date (e.g., Friday the 13th)</option>
+                            <option value="access-check">Access Threshold (10,000 logins)</option>
+                        </select>
+                    </div>
+
+                    <div class="config-group">
+                        <label>Payload Action</label>
+                        <select id="payload-select">
+                            <option value="wipe">Total File Wipe (Deletion)</option>
+                            <option value="encrypt">Ransomware Encryption</option>
+                            <option value="leak">Exfiltration to External Server</option>
+                        </select>
+                    </div>
+
+                    <div class="bomb-code-view">
+                        <pre><code>if (admin_account == NULL) {
+    execute_payload();
+}</code></pre>
+                    </div>
+
+                    <button id="arm-btn" class="btn primary">Arm Logic Bomb</button>
+                    <button id="reset-sim" class="btn secondary">Restore System</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Concept Section -->
+        <section id="concept" class="lab-section fade-in">
+            <h2 class="section-title">The Dormant Threat</h2>
+            <div class="concept-grid">
+                <div class="glass-card feature-card">
+                    <div class="icon">⏳</div>
+                    <h3>Dormancy</h3>
+                    <p>Unlike other malware, a logic bomb can stay quiet for years, bypassing detection until the right moment.</p>
+                </div>
+                <div class="glass-card feature-card">
+                    <div class="icon">👤</div>
+                    <h3>Insider Threat</h3>
+                    <p>Often planted by employees or contractors who have legitimate access to the source code or systems.</p>
+                </div>
+                <div class="glass-card feature-card">
+                    <div class="icon">🧨</div>
+                    <h3>Precision</h3>
+                    <p>Attacks are highly surgical, triggering only when certain environment variables or events align.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Prevention Section -->
+        <section id="prevention" class="lab-section fade-in">
+            <br><br>
+            <h2 class="section-title">How to Defuse the Bomb</h2>
+            <div class="malware-grid">
+                <div class="glass-card defense-card">
+                    <div class="icon">👁️</div>
+                    <h3>Code Review</h3>
+                    <p>Peer review helps spot "easter eggs" or suspicious conditional logic hidden in production code.</p>
+                </div>
+                <div class="glass-card defense-card">
+                    <div class="icon">🔍</div>
+                    <h3>Static Analysis</h3>
+                    <p>Using tools to scan for unused or "dead" code segments that contain destructive instructions.</p>
+                </div>
+                <div class="glass-card defense-card">
+                    <div class="icon">🛡️</div>
+                    <h3>Principle of Least Privilege</h3>
+                    <p>Limiting developers' ability to commit code directly to production without multi-factor authorization.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Logic Bomb Lab | Avanish Kumar</p>
+    </footer>
+
+    <!-- Explosion Overlay -->
+    <div id="explosion-overlay" class="modal-overlay">
+        <div class="modal-content glass-card crisis-theme">
+            <div class="modal-header">
+                <span class="icon">🚨</span>
+                <h3>DETONATION SUCCESSFUL</h3>
+            </div>
+            <div class="modal-body">
+                <p id="explosion-message">The trigger condition was met. The file system has been compromised.</p>
+                <div class="impact-stats">
+                    Files Deleted: <span id="deleted-count">4285</span>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="close-modal" class="modal-btn">Analyze Aftermath</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Vandalism Lab | Interactive Simulation</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@300;500;700&family=Space+Mono&family=Permanent+Marker&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="cursor-glow"></div>
+    <div class="grid-background"></div>
+
+    <nav class="glass-nav">
+        <div class="logo">VANDAL<span>LAB</span></div>
+        <ul class="nav-links">
+            <li><a href="../index.html">← Back to Hub</a></li>
+            <li><a href="#simulate" class="active">Simulate</a></li>
+            <li><a href="#consequences">Consequences</a></li>
+            <li><a href="#prevention">Prevention</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <header class="lab-header fade-in">
+            <h1>Computer Vandalism</h1>
+            <p class="subtitle">Experience the impact of unauthorized digital defacement and system sabotage.</p>
+        </header>
+
+        <!-- Simulation Section -->
+        <section id="simulate" class="lab-section fade-in">
+            <div class="sim-grid">
+                <!-- Vandalism Toolbox -->
+                <div class="glass-card toolbox-module">
+                    <div class="module-header">
+                        <span class="icon">🎨</span>
+                        <h3>Vandal's Toolbox</h3>
+                    </div>
+                    <p class="sm-text">Select a tool and click on the website preview to vandalize it.</p>
+                    
+                    <div class="tool-selection">
+                        <button class="tool-btn active" data-tool="spray" title="Spray Paint splatter">
+                            <span class="btn-icon">💨</span> Spray Paint
+                        </button>
+                        <button class="tool-btn" data-tool="scramble" title="Scramble text content">
+                            <span class="btn-icon">🔀</span> Scramble Text
+                        </button>
+                        <button class="tool-btn" data-tool="glitch" title="Distort entire sections">
+                            <span class="btn-icon">⚡</span> Glitch UI
+                        </button>
+                        <button class="tool-btn" data-tool="replace" title="Replace images with junk">
+                            <span class="btn-icon">🖼️</span> Image Swap
+                        </button>
+                    </div>
+
+                    <div class="impact-stats">
+                        <div class="stat">Damage Level: <span id="damage-val">0%</span></div>
+                        <div class="stat">Estimated Repair Cost: <span id="cost-val">₹0</span></div>
+                    </div>
+
+                    <button id="restore-btn" class="btn secondary">Emergency System Restore</button>
+                </div>
+
+                <!-- Targeted Website Preview -->
+                <div class="glass-card preview-module">
+                    <div class="preview-header">
+                        <div class="browser-dots">
+                            <span></span><span></span><span></span>
+                        </div>
+                        <div class="browser-address">https://global-enterprise.com</div>
+                    </div>
+                    
+                    <div id="vandal-target" class="website-preview">
+                        <div class="target-element hero-section">
+                            <h2 id="hero-heading">Empowering Global Innovation</h2>
+                            <p id="hero-subtext">Providing top-tier digital infrastructure for the modern world since 1998.</p>
+                        </div>
+                        
+                        <div class="target-element content-grid">
+                            <div class="preview-item">
+                                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=100&q=80" alt="Tech" class="preview-img">
+                                <h3>Secure Cloud</h3>
+                                <p>Military grade encryption for all your data.</p>
+                            </div>
+                            <div class="preview-item">
+                                <img src="https://images.unsplash.com/photo-1551288049-bbbda536639a?auto=format&fit=crop&w=100&q=80" alt="Stats" class="preview-img">
+                                <h3>Data Insights</h3>
+                                <p>Real-time analytics for faster growth.</p>
+                            </div>
+                        </div>
+
+                        <footer>
+                            <p>© 2026 Global Enterprise Inc.</p>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Consequences Section -->
+        <section id="consequences" class="lab-section fade-in">
+            <h2 class="section-title">The Aftermath</h2>
+            <div class="concept-grid">
+                <div class="glass-card feature-card">
+                    <div class="icon">📉</div>
+                    <h3>Brand Erosion</h3>
+                    <p>Defacement destroys user trust instantly. Even a temporary outage can lead to permanent loss of customers.</p>
+                </div>
+                <div class="glass-card feature-card">
+                    <div class="icon">💸</div>
+                    <h3>Financial Loss</h3>
+                    <p>The cost includes not just the repair, but legal fees, lost transactions, and increased insurance premiums.</p>
+                </div>
+                <div class="glass-card feature-card">
+                    <div class="icon">⚖️</div>
+                    <h3>Legal Penalties</h3>
+                    <p>Under many cyber laws, digital vandalism carries heavy fines and significant prison time, regardless of "artistic" intent.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Prevention Section -->
+        <section id="prevention" class="lab-section fade-in">
+            <br><br>
+            <h2 class="section-title">Defense Against Vandalism</h2>
+            <div class="malware-grid">
+                <div class="glass-card defense-card">
+                    <div class="icon">🧱</div>
+                    <h3>WAF (Web App Firewall)</h3>
+                    <p>Filter out malicious traffic and blocking common exploitation patterns before they touch your files.</p>
+                </div>
+                <div class="glass-card defense-card">
+                    <div class="icon">🕵️</div>
+                    <h3>File Integrity Monitoring</h3>
+                    <p>Systems that alert administrators the moment a system file or webpage content is altered unauthorized.</p>
+                </div>
+                <div class="glass-card defense-card">
+                    <div class="icon">🔄</div>
+                    <h3>Immutable Infrastructure</h3>
+                    <p>Deploying servers where data cannot be changed after launch; any update requires spinning up a fresh, clean instance.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Vandalism Lab | Avanish Kumar</p>
+    </footer>
+
+    <!-- Educational Modal -->
+    <div id="edu-modal" class="modal-overlay">
+        <div class="modal-content glass-card">
+            <div class="modal-header">
+                <span class="icon">🚨</span>
+                <h3>VANDALISM DETECTED</h3>
+            </div>
+            <div class="modal-body">
+                <p id="modal-message">Conceptual insight goes here.</p>
+            </div>
+            <div class="modal-footer">
+                <button id="close-modal" class="modal-btn">I Understand</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auction Fraud Lab | Interactive Simulation</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@300;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="cursor-glow"></div>
+    <div class="grid-background"></div>
+
+    <nav class="glass-nav">
+        <div class="logo">AUCTION<span>SEC</span></div>
+        <ul class="nav-links">
+            <li><a href="../index.html">← Back to Hub</a></li>
+            <li><a href="#simulate" class="active">Live Auction</a></li>
+            <li><a href="#types">Fraud Types</a></li>
+            <li><a href="#prevention">Safety Guide</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <header class="lab-header fade-in">
+            <h1>Online Auction Fraud</h1>
+            <p class="subtitle">Enter the world of deceptive bidding and fraudulent listings. Can you spot the red flags?</p>
+        </header>
+
+        <!-- Simulation Section -->
+        <section id="simulate" class="lab-section fade-in">
+            <div class="sim-grid">
+                <!-- Auction Listing -->
+                <div class="glass-card listing-module">
+                    <div class="listing-header">
+                        <span class="status-badge live">LIVE AUCTION</span>
+                        <span class="timer">Time Remaining: <span id="auction-timer">02:45</span></span>
+                    </div>
+                    
+                    <div class="product-info">
+                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=300&q=80" alt="Cyber Watch" class="product-img">
+                        <div class="product-details">
+                            <h2>Limited Edition "Nero" Cyber-Watch 2026</h2>
+                            <p class="seller">Seller: <span id="seller-name">GlobalGadgetKing (0 reviews)</span> ⭐ 0.0</p>
+                            <p class="description">Luxury wearable with holographic display. Brand new, sealed in box. No returns. Verified shipping by "Express-Air-Global" (Unknown carrier).</p>
+                        </div>
+                    </div>
+
+                    <div class="bidding-area">
+                        <div class="current-bid-box">
+                            <p class="label">Current Bid</p>
+                            <h2 id="current-bid">₹42,000</h2>
+                            <p id="bidder-info" class="sm-text">Highest Bidder: <span class="shill-text">User_782 (Invited Guest)</span></p>
+                        </div>
+                        <div class="bid-controls">
+                            <input type="number" id="bid-input" value="43000" step="500">
+                            <button id="place-bid-btn" class="bid-btn">PLACE BID</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scam Chat / Interaction Panel -->
+                <div class="glass-card side-panel">
+                    <div class="module-header">
+                        <span class="icon">💬</span>
+                        <h3>Seller Direct Message</h3>
+                    </div>
+                    <div id="chat-window" class="chat-body">
+                        <div class="msg system">You have started a conversation with GlobalGadgetKing.</div>
+                        <div class="msg seller">"Hey! I see you're interested in the Nero Watch. I can end the auction early for you if you want?"</div>
+                    </div>
+                    <div class="chat-input-area">
+                        <div id="chat-options" class="chat-options">
+                            <button class="chat-opt" data-msg="yes">How much for early exit?</button>
+                            <button class="chat-opt" data-msg="no">I'll stick to the auction.</button>
+                        </div>
+                    </div>
+
+                    <div class="stats-box">
+                        <div class="stat">Vigilance Score: <span id="vigilance-score">100%</span></div>
+                        <div class="stat">Risk Factor: <span id="risk-val" class="safe">LOW</span></div>
+                    </div>
+
+                    <button id="audit-btn" class="btn secondary">Audit for Fraud</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Types Section -->
+        <section id="types" class="lab-section fade-in">
+            <h2 class="section-title">Common Auction Scams</h2>
+            <div class="concept-grid">
+                <div class="glass-card feature-card">
+                    <div class="icon">🤖</div>
+                    <h3>Shill Bidding</h3>
+                    <p>Sellers or their bots bid on their own items to artificially drive up the price and create fake demand.</p>
+                </div>
+                <div class="glass-card feature-card">
+                    <div class="icon">📦</div>
+                    <h3>The "Non-Delivery"</h3>
+                    <p>The seller receives payment but never ships the item, or ships something completely different (like a brick in a box).</p>
+                </div>
+                <div class="glass-card feature-card">
+                    <div class="icon">🛑</div>
+                    <h3>Off-Platform Escrow</h3>
+                    <p>Scammers lure buyers away from the platform's secure payment system to use non-reversible wire transfers.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Prevention Section -->
+        <section id="prevention" class="lab-section fade-in">
+            <br><br>
+            <h2 class="section-title">Protecting Your Bids</h2>
+            <div class="malware-grid">
+                <div class="glass-card defense-card">
+                    <div class="icon">🛡️</div>
+                    <h3>Use Official Escrow</h3>
+                    <p>Never pay outside the auction site. Official systems hold money until you confirm the item is received.</p>
+                </div>
+                <div class="glass-card defense-card">
+                    <div class="icon">📊</div>
+                    <h3>Check Seller History</h3>
+                    <p>Detailed feedback and account age are critical. Zero-review accounts selling high-value items are a major red flag.</p>
+                </div>
+                <div class="glass-card defense-card">
+                    <div class="icon">🧐</div>
+                    <h3>Analyze Bidding Patterns</h3>
+                    <p>If the same user bids immediately after you every single time, it's likely a shill bot driving up your price.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Auction Security Lab | Avanish Kumar</p>
+    </footer>
+
+    <!-- Fraud Audit Modal -->
+    <div id="audit-modal" class="modal-overlay">
+        <div class="modal-content glass-card">
+            <div class="modal-header">
+                <span class="icon">🚩</span>
+                <h3>FRAUD AUDIT RESULTS</h3>
+            </div>
+            <div class="modal-body">
+                <ul id="audit-list">
+                    <!-- Red flags will be populated here -->
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button id="close-modal" class="modal-btn">I'll Be More Careful</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber-squatting Lab | Interactive Simulation</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@300;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="cursor-glow"></div>
+    <div class="grid-background"></div>
+
+    <nav class="glass-nav">
+        <div class="logo">SQUAT<span>SEC</span></div>
+        <ul class="nav-links">
+            <li><a href="../index.html">← Back to Hub</a></li>
+            <li><a href="#simulate" class="active">Simulate</a></li>
+            <li><a href="# udre">Legal (UDRP)</a></li>
+            <li><a href="#defense">Defense</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <header class="lab-header fade-in">
+            <h1>Cyber-squatting Lab</h1>
+            <p class="subtitle">Experience the lucrative but illegal world of domain capturing and typosquatting.</p>
+        </header>
+
+        <!-- Simulation Section -->
+        <section id="simulate" class="lab-section fade-in">
+            <div class="sim-grid">
+                <!-- Registration Console -->
+                <div class="glass-card console-module">
+                    <div class="module-header">
+                        <span class="icon">🔍</span>
+                        <h3>Domain Search & Typosquat</h3>
+                    </div>
+                    <div class="search-box">
+                        <input type="text" id="brand-input" placeholder="Enter a brand name (e.g. Google)...">
+                        <button id="search-btn" class="btn-primary">SCAN VARIATIONS</button>
+                    </div>
+
+                    <div id="results-area" class="results-list">
+                        <!-- Typos and variations will appear here -->
+                        <div class="placeholder-text">Enter a brand to find vulnerable domain variations.</div>
+                    </div>
+
+                    <div class="wallet-box">
+                        <div class="wallet-stat">Balance: <span id="balance">₹5,000</span></div>
+                        <div class="wallet-stat">Total Profit: <span id="profit" class="safe">₹0</span></div>
+                    </div>
+                </div>
+
+                <!-- Portfolio Panel -->
+                <div class="glass-card side-panel">
+                    <div class="module-header">
+                        <span class="icon">📂</span>
+                        <h3>Owned Portfolio</h3>
+                    </div>
+                    <div id="portfolio-list" class="portfolio-list">
+                        <div class="placeholder-text">Your acquired domains will appear here.</div>
+                    </div>
+
+                    <div class="legal-risk-box">
+                        <div class="stat">Trademark Infringement Risk: <span id="risk-level" class="safe">LOW</span></div>
+                        <div class="legal-progress">
+                            <div id="risk-bar" class="progress-fill" style="width: 0%"></div>
+                        </div>
+                    </div>
+
+                    <button id="monetize-btn" class="btn secondary">Collect Daily Revenue</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- UDRP Section -->
+        <section id="udrp" class="lab-section fade-in">
+            <h2 class="section-title">The Legal Battle (UDRP)</h2>
+            <div class="concept-grid">
+                <div class="glass-card feature-card">
+                    <div class="icon">⚖️</div>
+                    <h3>Bad Faith Intent</h3>
+                    <p>To win a domain dispute, a brand must prove you registered the domain specifically to profit from their trademark confusion.</p>
+                </div>
+                <div class="glass-card feature-card">
+                    <div class="icon">🏢</div>
+                    <h3>Trademark Rights</h3>
+                    <p>Owning a domain like "gogle.com" doesn't give you rights to the Google name. Trademarks usually trump domain registration first-come-first-served rules.</p>
+                </div>
+                <div class="glass-card feature-card">
+                    <div class="icon">🚨</div>
+                    <h3>Takedown Notices</h3>
+                    <p>Arbitrators can order the immediate transfer of a domain to the trademark owner without compensation to the squatter.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Defense Section -->
+        <section id="defense" class="lab-section fade-in">
+            <br><br>
+            <h2 class="section-title">How Brands Defend</h2>
+            <div class="malware-grid">
+                <div class="glass-card defense-card">
+                    <div class="icon">🛡️</div>
+                    <h3>Defensive Registration</h3>
+                    <p>Companies proactively buy hundreds of common typos and TLD variations (.net, .org, .biz) to keep them away from squatters.</p>
+                </div>
+                <div class="glass-card defense-card">
+                    <div class="icon">👁️</div>
+                    <h3>Domain Monitoring</h3>
+                    <p>Using automated services to alert legal teams the moment a domain matching their trademark is registered anywhere in the world.</p>
+                </div>
+                <div class="glass-card defense-card">
+                    <div class="icon">📢</div>
+                    <h3>Public Education</h3>
+                    <p>Training users to always check the address bar for the correct spelling before entering credentials or sensitive data.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Squatting Lab | Avanish Kumar</p>
+    </footer>
+
+    <!-- Monetization Modal -->
+    <div id="monetize-modal" class="modal-overlay">
+        <div class="modal-content glass-card">
+            <div class="modal-header">
+                <span class="icon">💰</span>
+                <h3>MONETIZATION STRATEGY</h3>
+            </div>
+            <div class="modal-body">
+                <p>Choose how to profit from <span id="selected-domain" class="aqua-text">domain.com</span>:</p>
+                <div class="strategy-grid">
+                    <button class="strategy-btn" data-type="park">
+                        <strong>Ad Parking</strong>
+                        <span>Low profit, low risk of immediate lawsuit.</span>
+                    </button>
+                    <button class="strategy-btn" data-type="phish">
+                        <strong>Phishing Portal</strong>
+                        <span>High profit, extremely high risk of legal action.</span>
+                    </button>
+                    <button class="strategy-btn" data-type="sell">
+                        <strong>Resale Attempt</strong>
+                        <span>Ask the brand to buy it back for ₹50,000.</span>
+                    </button>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="cancel-modal" class="modal-btn ghost">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Legal Alert Modal -->
+    <div id="legal-modal" class="modal-overlay">
+        <div class="modal-content glass-card danger-theme">
+            <div class="modal-header">
+                <span class="icon">⚖️</span>
+                <h3>LEGAL TAKEDOWN NOTICE</h3>
+            </div>
+            <div class="modal-body">
+                <p id="legal-message">A formal complaint has been filed against your domain. The domain has been seized and transferred to the trademark owner.</p>
+            </div>
+            <div class="modal-footer">
+                <button id="close-legal" class="modal-btn">I Understand</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Revenue Modal -->
+    <div id="revenue-modal" class="modal-overlay">
+        <div class="modal-content glass-card success-theme">
+            <div class="modal-header">
+                <span class="icon">📈</span>
+                <h3>REVENUE COLLECTED</h3>
+            </div>
+            <div class="modal-body">
+                <p>You have successfully collected daily revenue from your domain portfolio.</p>
+                <div class="revenue-summary">
+                    <span class="label">Total Amount:</span>
+                    <span id="collected-amount" class="aqua-text">₹0</span>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="close-revenue" class="modal-btn">Excellent</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

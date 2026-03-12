@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Spoofing Lab | Interactive Simulation</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@300;500;700&family=Space+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="cursor-glow"></div>
+    <div class="grid-background"></div>
+
+    <nav class="glass-nav">
+        <div class="logo">SPOOF<span>LAB</span></div>
+        <ul class="nav-links">
+            <li><a href="../index.html">← Back to Hub</a></li>
+            <li><a href="#simulate" class="active">Simulate</a></li>
+            <li><a href="#protocols">Security Protocols</a></li>
+            <li><a href="#prevention">Prevention</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <header class="lab-header fade-in">
+            <h1>Email Spoofing Simulation</h1>
+            <p class="subtitle">Experience how attackers forge sender identities and how modern protocols block them.</p>
+        </header>
+
+        <!-- Simulation Section -->
+        <section id="simulate" class="lab-section fade-in">
+            <div class="sim-grid">
+                <!-- Attacker Composer -->
+                <div class="glass-card composer-module">
+                    <div class="module-header">
+                        <span class="icon">😈</span>
+                        <h3>Attacker's Mail Composer</h3>
+                    </div>
+                    <p class="sm-text">Forge the email headers to trick the recipient.</p>
+                    
+                    <div class="spoof-form">
+                        <div class="input-group">
+                            <label>Friendly "From" (Display Name)</label>
+                            <input type="text" id="display-name" value="Bank of India Support" placeholder="e.g. Bank of India Support" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Spoofed Email Address</label>
+                            <input type="text" id="spoofed-email" value="security@bankofindia.com" placeholder="e.g. security@bankofindia.com" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Recipient Email</label>
+                            <input type="text" id="target-email" value="victim@personalmail.com" placeholder="e.g. victim@personalmail.com" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Subject</label>
+                            <input type="text" id="email-subject" value="URGENT: Your account is locked!" placeholder="e.g. URGENT: Your account is locked!" required>
+                        </div>
+                        
+                        <div class="security-toggles">
+                            <p class="sm-text">Target Domain Security:</p>
+                            <div class="toggles-row">
+                                <button class="sec-btn active" data-sec="spf">SPF</button>
+                                <button class="sec-btn active" data-sec="dkim">DKIM</button>
+                                <button class="sec-btn active" data-sec="dmarc">DMARC</button>
+                            </div>
+                        </div>
+
+                        <button id="send-btn" class="btn primary">Send Spoofed Email</button>
+                    </div>
+                </div>
+
+                <!-- Inbox Simulator -->
+                <div class="glass-card inbox-module">
+                    <div class="module-header">
+                        <span class="icon">📥</span>
+                        <h3>Victim's Inbox</h3>
+                    </div>
+                    
+                    <div class="inbox-container" id="inbox-list">
+                        <div class="empty-inbox">No new messages.</div>
+                    </div>
+
+                    <!-- Email Detailed View (Modal or hidden area) -->
+                    <div id="email-detail" class="email-detail">
+                        <button id="back-to-inbox" class="back-btn">← Back</button>
+                        <div class="email-header-view">
+                            <div class="security-badge" id="sec-badge">
+                                <span class="badge-icon">✓</span>
+                                <span class="badge-text">VERIFIED</span>
+                            </div>
+                            <h2 id="view-subject">Subject</h2>
+                            <p><strong>From:</strong> <span id="view-from">Name &lt;email&gt;</span></p>
+                            <p class="meta-headers" id="header-meta">Envelope-From: internal@attacker-vps.net</p>
+                        </div>
+                        <div class="email-content">
+                            <p>Dear Valued Customer,</p>
+                            <p>We've detected suspicious activity... please click below to secure.</p>
+                            <button class="phish-btn">Verify Account</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Protocols Section -->
+        <section id="protocols" class="lab-section fade-in">
+            <br><br>
+            <h2 class="section-title">The "Triple Shield" of Email</h2>
+            <div class="protocols-grid">
+                <div class="glass-card protocol-card">
+                    <div class="icon">📄</div>
+                    <h3>SPF</h3>
+                    <p><strong>Sender Policy Framework</strong>: A DNS record that lists which IP addresses are allowed to send email for your domain.</p>
+                </div>
+                <div class="glass-card protocol-card">
+                    <div class="icon">🔏</div>
+                    <h3>DKIM</h3>
+                    <p><strong>DomainKeys Identified Mail</strong>: Adds a digital signature to emails, allowing the receiver to verify the content hasn't been tampered with.</p>
+                </div>
+                <div class="glass-card protocol-card">
+                    <div class="icon">🚦</div>
+                    <h3>DMARC</h3>
+                    <p><strong>Domain-based Message Authentication</strong>: Tells the receiver what to do if SPF or DKIM fails (Block, Quarantine, or Allow).</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Prevention Section -->
+        <section id="prevention" class="lab-section fade-in">
+            <br><br>
+            <h2 class="section-title">How to Spot Spoofing</h2>
+            <div class="malware-grid">
+                <div class="glass-card defense-card">
+                    <div class="icon">🔍</div>
+                    <h3>Check Headers</h3>
+                    <p>Always inspect the "Return-Path" or "Authentication-Results" headers to see the true origin.</p>
+                </div>
+                <div class="glass-card defense-card">
+                    <div class="icon">🤖</div>
+                    <h3>MTA-STS</h3>
+                    <p>Modern protocols that force encrypted and authenticated communication between mail servers.</p>
+                </div>
+                <div class="glass-card defense-card">
+                    <div class="icon">🔒</div>
+                    <h3>BIMI</h3>
+                    <p>Displays verified brand logos in the inbox so users can visually confirm identity.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Email Spoofing Lab | Avanish Kumar</p>
+    </footer>
+
+    <!-- Educational Modal -->
+    <div id="edu-modal" class="modal-overlay">
+        <div class="modal-content glass-card">
+            <div class="modal-header">
+                <span class="modal-icon">💡</span>
+                <h3 id="modal-title">Security Insight</h3>
+            </div>
+            <div class="modal-body">
+                <p id="modal-message">Insight message goes here.</p>
+            </div>
+            <div class="modal-footer">
+                <button id="close-modal" class="modal-btn">I Understand</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spamming Lab | Interactive Simulation</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@300;500;700&family=Space+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="cursor-glow"></div>
+    <div class="grid-background"></div>
+
+    <nav class="glass-nav">
+        <div class="logo">SPAM<span>LAB</span></div>
+        <ul class="nav-links">
+            <li><a href="../index.html">← Back to Hub</a></li>
+            <li><a href="#simulate" class="active">Simulate</a></li>
+            <li><a href="#impact">The Impact</a></li>
+            <li><a href="#defense">The Filter</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <header class="lab-header fade-in">
+            <h1>Spamming Simulation</h1>
+            <p class="subtitle">Experience the mechanics of bulk unsolicited messaging and how modern filters combat it.</p>
+        </header>
+
+        <!-- Simulation Section -->
+        <section id="simulate" class="lab-section fade-in">
+            <div class="sim-grid">
+                <!-- Attacker Console -->
+                <div class="glass-card attacker-module">
+                    <div class="module-header">
+                        <span class="icon">🚀</span>
+                        <h3>Bulk Sender Console</h3>
+                    </div>
+                    <p class="sm-text">Launch a mass-marketing campaign to thousands of targets.</p>
+                    
+                    <div class="config-group">
+                        <label>Campaign Subject</label>
+                        <select id="subject-select">
+                            <option value="win">!!! YOU WON A PRIZE !!!</option>
+                            <option value="urgent">URGENT: Verify your account now</option>
+                            <option value="crypto">New Crypto Token: 1000x Gains</option>
+                            <option value="meds">Cheap Meds - No Prescription</option>
+                        </select>
+                    </div>
+
+                    <div class="config-group">
+                        <label>Target Volume</label>
+                        <div class="range-container">
+                            <input type="range" id="volume-range" min="100" max="5000" step="100" value="500">
+                            <span id="volume-val">500 emails</span>
+                        </div>
+                    </div>
+
+                    <div class="server-stats">
+                        <div class="stat">Server Load: <span id="load-val">2%</span></div>
+                        <div class="stat">Status: <span id="status-text">Standby</span></div>
+                    </div>
+
+                    <button id="send-btn" class="btn primary">Launch Campaign</button>
+                    <button id="reset-sim" class="btn secondary">Clear Inbox</button>
+                </div>
+
+                <!-- Victim Inbox -->
+                <div class="glass-card inbox-module">
+                    <div class="module-header">
+                        <span class="icon">📱</span>
+                        <h3>Victim's Notification Center</h3>
+                    </div>
+                    
+                    <div class="inbox-controls">
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="filter-toggle">
+                            <span class="slider"></span>
+                        </label>
+                        <span class="sm-text">Anti-Spam Filter</span>
+                    </div>
+
+                    <div class="inbox-container" id="notification-list">
+                        <div class="empty-inbox">No notifications.</div>
+                    </div>
+                    
+                    <div class="impact-counter">
+                        Messages Received: <span id="received-count">0</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Impact Section -->
+        <section id="impact" class="lab-section fade-in">
+            <h2 class="section-title">The Cost of Spam</h2>
+            <div class="concept-grid">
+                <div class="glass-card feature-card">
+                    <div class="icon">📉</div>
+                    <h3>Productivity Loss</h3>
+                    <p>Employees spend an average of 15-20 minutes a day sorting through spam, costing billions in lost time.</p>
+                </div>
+                <div class="glass-card feature-card">
+                    <div class="icon">🔌</div>
+                    <h3>Server Overload</h3>
+                    <p>Spam accounts for ~45% of all email traffic, straining global network bandwidth and storage.</p>
+                </div>
+                <div class="glass-card feature-card">
+                    <div class="icon">🎣</div>
+                    <h3>Delivery for Malware</h3>
+                    <p>Spam is the primary delivery vehicle for phishing links, ransomware, and credential harvesters.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Defense Section -->
+        <section id="defense" class="lab-section fade-in">
+            <br><br>
+            <h2 class="section-title">Filter Mechanics</h2>
+            <div class="malware-grid">
+                <div class="glass-card defense-card">
+                    <div class="icon">🔡</div>
+                    <h3>Keyword Analysis</h3>
+                    <p>Filters look for "trigger words" like 'Free', 'Act Now', or excessive punctuation and caps.</p>
+                </div>
+                <div class="glass-card defense-card">
+                    <div class="icon">🕵️</div>
+                    <h3>Bayesian Filtering</h3>
+                    <p>Statistical learning that calculates the probability of a message being spam based on past examples.</p>
+                </div>
+                <div class="glass-card defense-card">
+                    <div class="icon">📜</div>
+                    <h3>Blacklists (RBL)</h3>
+                    <p>Real-time databases of IP addresses known for sending large volumes of unsolicited mail.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Spamming Lab | Avanish Kumar</p>
+    </footer>
+
+    <!-- Educational Modal -->
+    <div id="edu-modal" class="modal-overlay">
+        <div class="modal-content glass-card">
+            <div class="modal-header">
+                <span class="icon">📡</span>
+                <h3>NETWORK CONGESTION ALERT</h3>
+            </div>
+            <div class="modal-body">
+                <p id="modal-message">The bulk campaign has flooded the network. Notice how without a filter, the victim is completely overwhelmed by unsolicited data.</p>
+            </div>
+            <div class="modal-footer">
+                <button id="close-modal" class="modal-btn">I Understand</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forgery & Counterfeiting Lab | Digital Mint</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@300;500;700&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="cursor-glow"></div>
+    <div class="blueprint-grid"></div>
+
+    <nav class="glass-nav">
+        <div class="logo">DIGITAL<span>MINT</span></div>
+        <ul class="nav-links">
+            <li><a href="../index.html">← Back to Hub</a></li>
+            <li><a href="#studio" class="active">Design Studio</a></li>
+            <li><a href="#concepts">History</a></li>
+            <li><a href="#detection">Detection</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <header class="lab-header fade-in">
+            <h1>Forgery & Counterfeiting</h1>
+            <p class="subtitle">Step into the Digital Mint. Attempt to replicate high-security features and see how forensics detect the fakes.</p>
+        </header>
+
+        <!-- Simulation Section -->
+        <section id="studio" class="lab-section fade-in">
+            <div class="studio-grid">
+                <!-- Instrument Panel -->
+                <div class="glass-card tool-panel">
+                    <div class="module-header">
+                        <span class="icon">🎨</span>
+                        <h3>Security Layer Studio</h3>
+                    </div>
+                    <p class="sm-text">Apply security features to your ID specimen.</p>
+                    
+                    <div class="layer-btns">
+                        <button class="layer-btn" data-layer="watermark">
+                            <span class="l-icon">💧</span>
+                            <div class="l-text">
+                                <strong>Watermark</strong>
+                                <span>Embedded depth visual</span>
+                            </div>
+                        </button>
+                        <button class="layer-btn" data-layer="microprint">
+                            <span class="l-icon">🔎</span>
+                            <div class="l-text">
+                                <strong>Microprinting</strong>
+                                <span>Ultra-fine text lines</span>
+                            </div>
+                        </button>
+                        <button class="layer-btn" data-layer="hologram">
+                            <span class="l-icon">✨</span>
+                            <div class="l-text">
+                                <strong>Hologram</strong>
+                                <span>Color-shifting patch</span>
+                            </div>
+                        </button>
+                        <button class="layer-btn" data-layer="uvink">
+                            <span class="l-icon">🔦</span>
+                            <div class="l-text">
+                                <strong>UV Fluorescent Ink</strong>
+                                <span>Hidden safety pattern</span>
+                            </div>
+                        </button>
+                    </div>
+
+                    <div class="data-editor">
+                        <div class="input-group">
+                            <label>Specimen Name</label>
+                            <input type="text" id="id-name" value="JOHN DOE" maxlength="20">
+                        </div>
+                        <div class="input-group">
+                            <label>Year of Issue</label>
+                            <input type="number" id="id-year" value="2026" min="1990" max="2030">
+                        </div>
+                    </div>
+
+                    <button id="submit-specimen" class="btn primary">SUBMIT FOR SCANNING</button>
+                </div>
+
+                <!-- Specimen View -->
+                <div class="glass-card specimen-card">
+                    <div class="module-header">
+                        <span class="icon">🆔</span>
+                        <h3>Specimen: #<span id="serial-num">8293-F</span></h3>
+                    </div>
+
+                    <div id="id-specimen" class="id-card">
+                        <div class="id-photo">👤</div>
+                        <div class="id-details">
+                            <h2 id="display-name">JOHN DOE</h2>
+                            <p><strong>ISSUE:</strong> <span id="display-year">2026</span></p>
+                            <p><strong>EXPIRY:</strong> 2036</p>
+                            <p class="sm-text">CITY OF AVANISH</p>
+                        </div>
+                        
+                        <!-- Dynamic Layers -->
+                        <div id="layer-watermark" class="layer watermark">🛡️</div>
+                        <div id="layer-microprint" class="layer microprint">VALIDVALIDVALIDVALIDVALIDVALIDVALIDVALID</div>
+                        <div id="layer-hologram" class="layer hologram"></div>
+                        <div id="layer-uvink" class="layer uvink">UV OFFICIAL SEAL</div>
+                    </div>
+
+                    <div class="forensic-tools">
+                        <div class="tool-switch">
+                            <label class="switch">
+                                <input type="checkbox" id="uv-toggle">
+                                <span class="slider round"></span>
+                            </label>
+                            <span>UV Lamp (365nm)</span>
+                        </div>
+                        <div class="tool-switch">
+                            <label class="switch">
+                                <input type="checkbox" id="zoom-toggle">
+                                <span class="slider round"></span>
+                            </label>
+                            <span>Magnifying Lens</span>
+                        </div>
+                    </div>
+
+                    <div id="scan-feedback" class="scan-feedback hidden">
+                        <div class="score-ring">
+                            <svg viewbox="0 0 100 100">
+                                <circle cx="50" cy="50" r="45" class="bg"></circle>
+                                <circle cx="50" cy="50" r="45" id="score-circle" class="fg"></circle>
+                            </svg>
+                            <div id="score-text">0%</div>
+                        </div>
+                        <p id="grade-text">NOVICE ATTEMPT</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Concepts Section -->
+        <section id="concepts" class="lab-section fade-in">
+            <h2 class="section-title">The Art of Deception</h2>
+            <div class="concept-grid">
+                <div class="glass-card feature-card">
+                    <div class="icon">📜</div>
+                    <h3>Physical Forgery</h3>
+                    <p>Altering handwritten documents, cheque numbers, or paper currency. Requires physical chemical removal of ink and matching paper grain.</p>
+                </div>
+                <div class="glass-card feature-card">
+                    <div class="icon">💻</div>
+                    <h3>Digital Forgery</h3>
+                    <p>Using software like Photoshop to alter PDFs, certificates, or flight tickets. Often detected via metadata analysis and pixel inconsistencies.</p>
+                </div>
+                <div class="glass-card feature-card">
+                    <div class="icon">🤖</div>
+                    <h3>Deepfake Era</h3>
+                    <p>The modern frontier of counterfeiting: replicating human voices and faces using AI to commit high-value wire fraud and disinformation.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Detection Section -->
+        <section id="detection" class="lab-section fade-in">
+            <br><br>
+            <h2 class="section-title">Forensic Detection</h2>
+            <div class="malware-grid">
+                <div class="glass-card defense-card">
+                    <div class="icon">🔎</div>
+                    <h3>Level 1: Visual</h3>
+                    <p>Checking for intaglio printing (raised ink), watermarks, and security threads under transmitted light.</p>
+                </div>
+                <div class="glass-card defense-card">
+                    <div class="icon">🔦</div>
+                    <h3>Level 2: Forensic</h3>
+                    <p>Using UV lights, infrared scanners, and video spectral comparators (VSC) to reveal hidden security data.</p>
+                </div>
+                <div class="glass-card defense-card">
+                    <div class="icon">💾</div>
+                    <h3>Level 3: Digital</h3>
+                    <p>Cryptographic signatures and blockchain verification for e-documents, ensuring the original hash remains unchanged.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Forgery & Counterfeiting Lab | Avanish Kumar</p>
+    </footer>
+
+    <!-- Result Modal -->
+    <div id="result-modal" class="modal-overlay">
+        <div class="modal-content glass-card result-theme">
+            <div class="modal-header">
+                <span class="icon" id="result-icon">⚖️</span>
+                <h3 id="result-title">FORENSIC REPORT</h3>
+            </div>
+            <div class="modal-body">
+                <p id="result-message">Report analysis pending...</p>
+                <div id="critique-list" class="critique-list"></div>
+            </div>
+            <div class="modal-footer">
+                <button id="close-result" class="modal-btn">ACKNOWLEDGE</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

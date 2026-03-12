@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salami Attack Lab | Interactive Simulation</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@300;500;700&family=Space+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="cursor-glow"></div>
+    <div class="grid-background"></div>
+
+    <nav class="glass-nav">
+        <div class="logo">SALAMI<span>LAB</span></div>
+        <ul class="nav-links">
+            <li><a href="../index.html">← Back to Hub</a></li>
+            <li><a href="#simulate" class="active">Simulate</a></li>
+            <li><a href="#concept">The Concept</a></li>
+            <li><a href="#mitigation">Mitigation</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <header class="lab-header fade-in">
+            <h1>Salami Attack Simulation</h1>
+            <p class="subtitle">Experience how "thin slices" of stolen data or money pile up into a massive fortune.</p>
+        </header>
+
+        <!-- Simulation Section -->
+        <section id="simulate" class="lab-section fade-in">
+            <div class="sim-grid">
+                <!-- Bank Dashboard -->
+                <div class="glass-card bank-dashboard">
+                    <h3>🏦 Core Banking Dashboard</h3>
+                    <div class="total-processed">
+                        <span class="label">Total Volume Processed</span>
+                        <span class="value" id="bank-total">₹0.00</span>
+                    </div>
+                    
+                    <div class="transaction-feed">
+                        <div class="feed-header">
+                            <span>Description</span>
+                            <span>Original</span>
+                            <span>Processing</span>
+                        </div>
+                        <div id="transaction-list" class="feed-content">
+                            <!-- Transactions appear here -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Attacker Console -->
+                <div class="glass-card attacker-console">
+                    <div class="attacker-header">
+                        <span class="icon">😈</span>
+                        <h3>Salami Script Control</h3>
+                    </div>
+                    
+                    <div class="control-panel">
+                        <div class="toggle-group">
+                            <span>Script Status:</span>
+                            <button id="script-toggle" class="btn-toggle">OFF</button>
+                        </div>
+                        
+                        <div class="accumulator-card">
+                            <span class="label">Attacker's Hidden Account</span>
+                            <span class="theft-value" id="theft-total">₹0.00000</span>
+                            <div class="progress-info">
+                                <span id="theft-count">0 thefts performed</span>
+                            </div>
+                        </div>
+
+                        <div class="terminal-mini" id="attacker-logs">
+                            > Awaiting transaction volume...
+                        </div>
+                        
+                        <button id="generate-bulk" class="btn primary">Run 1,000 Transactions</button>
+                        <button id="reset-sim" class="btn secondary">Reset Simulation</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Concept Section -->
+        <section id="concept" class="lab-section fade-in">
+            <br><br>
+            <h2 class="section-title">The "Salami Slicing" Concept</h2>
+            <div class="concept-grid">
+                <div class="glass-card feature-card">
+                    <div class="icon">🔪</div>
+                    <h3>The Technique</h3>
+                    <p>Attackers program the system to shave off exactly ₹1 from every transaction.</p>
+                </div>
+                <div class="glass-card feature-card">
+                    <div class="icon">📈</div>
+                    <h3>Massive Scale</h3>
+                    <p>While one rupee seems small, doing this across millions of accounts every day results in huge sums of money over time.</p>
+                </div>
+                <div class="glass-card feature-card">
+                    <div class="icon">🕵️</div>
+                    <h3>Hard to Detect</h3>
+                    <p>Individual account holders rarely notice a missing ₹1 in a large transaction, and the bank's books often seem to balance on a macro level.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mitigation Section -->
+        <section id="mitigation" class="lab-section fade-in">
+            <br><br>
+            <h2 class="section-title">Mitigating Salami Attacks</h2>
+            <div class="malware-grid">
+                <div class="glass-card defense-card">
+                    <div class="icon">📏</div>
+                    <h3>Strict Rounding Rules</h3>
+                    <p>Implementing standardized IEEE-754 rounding across all financial modules to prevent custom "shaving" logic.</p>
+                </div>
+                <div class="glass-card defense-card">
+                    <div class="icon">🔬</div>
+                    <h3>Precision Auditing</h3>
+                    <p>Continuously comparing total inputs with total outputs down to four or more decimal places.</p>
+                </div>
+                <div class="glass-card defense-card">
+                    <div class="icon">🤖</div>
+                    <h3>AI Anomaly Detection</h3>
+                    <p>Detecting infinitesimal patterns of leakages that deviate from mathematical probability.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Salami Attack Lab | Avanish Kumar</p>
+    </footer>
+
+    <!-- Custom Educational Modal -->
+    <div id="edu-modal" class="modal-overlay">
+        <div class="modal-content glass-card">
+            <div class="modal-header">
+                <span class="modal-icon">💡</span>
+                <h3>Educational Insight</h3>
+            </div>
+            <div class="modal-body">
+                <p id="modal-message">Success! You've just accumulated over ₹100 through Salami Slicing. Each individual victim lost exactly ₹1, making the theft practically invisible in high-volume transactions.</p>
+            </div>
+            <div class="modal-footer">
+                <button id="close-modal" class="modal-btn">I Understand</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Hacking Lab | Interactive Terminal</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="crt-overlay"></div>
+    <div class="matrix-background"></div>
+
+    <nav class="glass-nav">
+        <div class="logo">HACK<span>OS</span></div>
+        <ul class="nav-links">
+            <li><a href="../index.html">← Back to Hub</a></li>
+            <li><a href="#console" class="active">Console</a></li>
+            <li><a href="#concepts">Concepts</a></li>
+            <li><a href="#mitigation">Legal & Defense</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <header class="lab-header fade-in">
+            <h1>Computer Hacking Simulator</h1>
+            <p class="subtitle">Step into the shoes of a penetration tester. Identify, exploit, and secure vulnerabilities.</p>
+        </header>
+
+        <!-- Terminal Section -->
+        <section id="console" class="lab-section fade-in">
+            <div class="sim-grid">
+                <!-- Terminal Window -->
+                <div class="terminal-window glass-card">
+                    <div class="terminal-header">
+                        <div class="dots"><span></span><span></span><span></span></div>
+                        <div class="title">root@attacker-machine:~</div>
+                    </div>
+                    <div id="terminal-output" class="terminal-body">
+                        <div class="line">HACK OS v1.0.4 - Initialized successfuly.</div>
+                        <div class="line">System: x86_64 PenTest Environment</div>
+                        <div class="line">Type <span class="cmd-text">'help'</span> to see available tools.</div>
+                        <div class="line">----------------------------------------</div>
+                    </div>
+                    <div class="terminal-input-line">
+                        <span class="prompt">root@attacker:~#</span>
+                        <input type="text" id="terminal-input" autofocus autocomplete="off" spellcheck="false">
+                    </div>
+                </div>
+
+                <!-- Helper/Status Panel -->
+                <div class="glass-card info-panel">
+                    <div class="module-header">
+                        <span class="icon">🎯</span>
+                        <h3>Mission Status</h3>
+                    </div>
+                    <div class="mission-steps">
+                        <div class="step" id="step-1">1. Network Recon (scan)</div>
+                        <div class="step" id="step-2">2. Gain Entry (bruteforce)</div>
+                        <div class="step" id="step-3">3. Elevate Privilege (exploit)</div>
+                        <div class="step" id="step-4">4. Extract Data (extract)</div>
+                    </div>
+
+                    <div class="connection-stats">
+                        <div class="stat">Target: <span class="glow-text">192.168.1.15</span></div>
+                        <div class="stat">Access Level: <span id="access-level" class="dim-text">NONE</span></div>
+                    </div>
+
+                    <div class="quick-btns">
+                        <p class="sm-text">Rapid Commands:</p>
+                        <button class="tool-btn" data-cmd="scan">scan</button>
+                        <button class="tool-btn" data-cmd="bruteforce">bruteforce</button>
+                        <button class="tool-btn" data-cmd="exploit">exploit</button>
+                        <button class="tool-btn" data-cmd="help">help</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Concepts Section -->
+        <section id="concepts" class="lab-section fade-in">
+            <h2 class="section-title">The Hacking Methodology</h2>
+            <div class="concept-grid">
+                <div class="glass-card feature-card">
+                    <div class="icon">🔍</div>
+                    <h3>Reconnaissance</h3>
+                    <p>The first stage is gathering information. Hackers use port scanners like Nmap to find which services are running on a target.</p>
+                </div>
+                <div class="glass-card feature-card">
+                    <div class="icon">🔑</div>
+                    <h3>Exploitation</h3>
+                    <p>Once a target is found, an exploit is used to take advantage of a vulnerability (like a weak password or outdated software).</p>
+                </div>
+                <div class="glass-card feature-card">
+                    <div class="icon">📈</div>
+                    <h3>Privilege Escalation</h3>
+                    <p>After gaining initial access, hackers look for ways to gain "Root" or "Admin" rights to control the entire system.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mitigation Section -->
+        <section id="mitigation" class="lab-section fade-in">
+            <br><br>
+            <h2 class="section-title">Ethical Hacking & Defense</h2>
+            <div class="malware-grid">
+                <div class="glass-card defense-card">
+                    <div class="icon">👮</div>
+                    <h3>Black vs White Hat</h3>
+                    <p>Ethical hackers (White Hats) use these same tools to find and fix bugs before criminals (Black Hats) exploit them.</p>
+                </div>
+                <div class="glass-card defense-card">
+                    <div class="icon">🧱</div>
+                    <h3>Hardening</h3>
+                    <p>Securing systems involves disabling unused ports, using strong passwords, and patching software regularly.</p>
+                </div>
+                <div class="glass-card defense-card">
+                    <div class="icon">⚖️</div>
+                    <h3>Legality</h3>
+                    <p>Unauthorized access to a computer system is a crime punishable by significant prison sentences globally.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Hacking OS | Avanish Kumar</p>
+    </footer>
+
+    <!-- Overlay for Success/Fail -->
+    <div id="status-overlay" class="modal-overlay">
+        <div class="modal-content glass-card console-theme">
+            <div class="modal-header">
+                <span class="icon" id="overlay-icon">✔️</span>
+                <h3 id="overlay-title">MISSION COMPLETE</h3>
+            </div>
+            <div class="modal-body">
+                <p id="overlay-message">Access granted. Root shell established on target system.</p>
+            </div>
+            <div class="modal-footer">
+                <button id="close-overlay" class="modal-btn">ACKNOWLEDGE</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

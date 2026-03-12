@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XSS Lab | Interactive Simulation</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@300;500;700&family=Space+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="cursor-glow"></div>
+    <div class="grid-background"></div>
+
+    <nav class="glass-nav">
+        <div class="logo">XSS<span>LAB</span></div>
+        <ul class="nav-links">
+            <li><a href="../index.html">← Back to Hub</a></li>
+            <li><a href="#stored" class="active">Stored</a></li>
+            <li><a href="#reflected">Reflected</a></li>
+            <li><a href="#prevention">Prevention</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <header class="lab-header fade-in">
+            <h1>Cross-Site Scripting (XSS)</h1>
+            <p class="subtitle">Inject malicious scripts into trusted websites to hijack sessions and steal data.</p>
+        </header>
+
+        <!-- Module 1: Stored XSS -->
+        <section id="stored" class="lab-section fade-in">
+            <h2 class="section-title">Step 1: Stored XSS (Persistent)</h2>
+            <div class="sim-grid">
+                <div class="glass-card feed-module">
+                    <h3>📱 Vulnerable Social Feed</h3>
+                    <p class="sm-text">This feed doesn't sanitize user input. Anything you post is stored in the "database".</p>
+                    
+                    <div id="social-feed" class="post-container">
+                        <div class="post">
+                            <strong>Admin:</strong> Welcome to our new decentralized social platform!
+                        </div>
+                    </div>
+
+                    <div class="post-form">
+                        <textarea id="stored-input" placeholder="What's on your mind? (Try <script>alert('XSS!')</script>)"></textarea>
+                        <button id="post-btn" class="btn primary">Post Comment</button>
+                    </div>
+                </div>
+
+                <div class="glass-card attacker-module">
+                    <div class="module-header">
+                        <span class="icon">💻</span>
+                        <h3>Attacker's Terminal</h3>
+                    </div>
+                    <p class="sm-text">Captured cookies and hijacked session data will appear here.</p>
+                    <div id="attacker-terminal" class="mini-terminal">
+                        > Listening for stolen data...
+                    </div>
+                    <div class="payload-shortcuts">
+                        <p class="sm-text">Payload Shortcuts:</p>
+                        <button class="payload-btn" data-type="alert">Alert Popup</button>
+                        <button class="payload-btn" data-type="cookie">Steal Cookie</button>
+                        <button class="payload-btn" data-type="deface">Deface UI</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Module 2: Reflected XSS -->
+        <section id="reflected" class="lab-section fade-in">
+            <br><br>
+            <h2 class="section-title">Step 2: Reflected XSS (Non-Persistent)</h2>
+            <div class="sim-grid">
+                <div class="glass-card search-module">
+                    <h3>🔍 E-Commerce Search</h3>
+                    <p class="sm-text">The search query is reflected back to the user without escaping.</p>
+                    
+                    <div class="search-bar">
+                        <input type="text" id="search-input" placeholder="Search for products...">
+                        <button id="search-btn" class="btn primary">Search</button>
+                    </div>
+
+                    <div id="search-results" class="results-view">
+                        <p>No search results yet.</p>
+                    </div>
+                </div>
+
+                <div class="glass-card security-controls">
+                    <h3>🛡️ Security Simulation</h3>
+                    <p class="sm-text">Toggle defenses to see how they block XSS attacks.</p>
+                    
+                    <div class="toggle-group">
+                        <label>Input Sanitization</label>
+                        <button id="sanitize-toggle" class="btn-toggle">OFF</button>
+                    </div>
+                    <div class="toggle-group">
+                        <label>Content Security Policy (CSP)</label>
+                        <button id="csp-toggle" class="btn-toggle">OFF</button>
+                    </div>
+                    
+                    <div class="educational-note" id="edu-note">
+                        <p>💡 <strong>Note:</strong> With sanitization OFF, your browser executes the injected tags as code.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Prevention Section -->
+        <section id="prevention" class="lab-section fade-in">
+            <br><br>
+            <h2 class="section-title">Professional XSS Prevention</h2>
+            <div class="malware-grid">
+                <div class="glass-card defense-card">
+                    <div class="icon">🧼</div>
+                    <h3>Output Encoding</h3>
+                    <p>Convert special characters into HTML entities (e.g., `<` becomes `&lt;`) so the browser doesn't execute them.</p>
+                </div>
+                <div class="glass-card defense-card">
+                    <div class="icon">🚫</div>
+                    <h3>CSP Headers</h3>
+                    <p>Define which scripts are allowed to execute, blocking inline scripts and unauthorized external domains.</p>
+                </div>
+                <div class="glass-card defense-card">
+                    <div class="icon">🔐</div>
+                    <h3>HttpOnly Cookies</h3>
+                    <p>Prevent JavaScript from accessing sensitive cookies, making "Cookie Theft" attacks impossible.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 XSS Lab | Avanish Kumar</p>
+    </footer>
+
+    <!-- XSS Popup Simulation -->
+    <div id="xss-overlay" class="modal-overlay">
+        <div class="modal-content glass-card alert-theme">
+            <div class="modal-header">
+                <span class="icon">⚠️</span>
+                <h3>XSS EXECUTED</h3>
+            </div>
+            <div class="modal-body">
+                <p id="xss-message">The malicious script has successfully run!</p>
+            </div>
+            <div class="modal-footer">
+                <button id="close-xss" class="modal-btn">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Educational Modal -->
+    <div id="edu-modal" class="modal-overlay">
+        <div class="modal-content glass-card">
+            <div class="modal-header">
+                <span class="icon">💡</span>
+                <h3>Security Insight</h3>
+            </div>
+            <div class="modal-body">
+                <p id="modal-message">Insight message goes here.</p>
+            </div>
+            <div class="modal-footer">
+                <button id="close-modal" class="modal-btn">I Understand</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

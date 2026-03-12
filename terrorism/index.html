@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Terrorism Lab | Interactive Simulation</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@300;500;700&family=Space+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="cursor-glow"></div>
+    <div class="grid-background"></div>
+
+    <nav class="glass-nav">
+        <div class="logo">TERROR<span>LAB</span></div>
+        <ul class="nav-links">
+            <li><a href="../index.html">← Back to Hub</a></li>
+            <li><a href="#simulate" class="active">Simulate</a></li>
+            <li><a href="#impact">The Impact</a></li>
+            <li><a href="#defense">Defense</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <header class="lab-header fade-in">
+            <h1>Cyber Terrorism Simulation</h1>
+            <p class="subtitle">Witness how digital attacks can cause physical devastation to critical national infrastructure.</p>
+        </header>
+
+        <!-- Simulation Section -->
+        <section id="simulate" class="lab-section fade-in">
+            <div class="sim-grid">
+                <!-- SCADA Dashboard -->
+                <div class="glass-card scada-module">
+                    <div class="module-header">
+                        <span class="icon">🏭</span>
+                        <h3>City Power Grid (SCADA)</h3>
+                    </div>
+                    <p class="sm-text">Monitoring real-time stability of the city's electrical infrastructure.</p>
+                    
+                    <div class="grid-status-box">
+                        <div class="stability-meter">
+                            <div class="meter-fill" id="stability-fill"></div>
+                            <span id="stability-text">STABLE</span>
+                        </div>
+                    </div>
+
+                    <div class="scada-stats">
+                        <div class="stat-card">
+                            <span class="label">Voltage</span>
+                            <span class="value" id="voltage-val">230kV</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="label">Frequency</span>
+                            <span class="value" id="freq-val">50.0Hz</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="label">Grid Load</span>
+                            <span class="value" id="load-val">42%</span>
+                        </div>
+                    </div>
+
+                    <div class="active-substations">
+                        <div class="substation" id="sub-1">Substation A<span>ACTIVE</span></div>
+                        <div class="substation" id="sub-2">Substation B<span>ACTIVE</span></div>
+                        <div class="substation" id="sub-3">Substation C<span>ACTIVE</span></div>
+                    </div>
+                </div>
+
+                <!-- Attacker Console -->
+                <div class="glass-card attacker-module">
+                    <div class="module-header">
+                        <span class="icon">💀</span>
+                        <h3>Terrorist Exploit Console</h3>
+                    </div>
+                    <p class="sm-text">Inject malicious logic into the industrial control systems (PLCs).</p>
+                    
+                    <div class="payload-list">
+                        <button class="exploit-btn" data-exploit="voltage">Voltage Surge Overload</button>
+                        <button class="exploit-btn" data-exploit="frequency">Frequency Desync</button>
+                        <button class="exploit-btn" data-exploit="shutdown">Emergency Core Purge</button>
+                    </div>
+
+                    <div class="mini-terminal" id="terror-logs">
+                        > System standby... awaiting target acquisition.
+                    </div>
+                    
+                    <button id="reset-sim" class="btn secondary">Reset Infrastructure</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Impact Section -->
+        <section id="impact" class="lab-section fade-in">
+            <h2 class="section-title">Why it's "Cyber Terrorism"</h2>
+            <div class="concept-grid">
+                <div class="glass-card feature-card warning">
+                    <div class="icon">🏙️</div>
+                    <h3>Mass Scale</h3>
+                    <p>Instead of one person, it targets thousands of citizens simultaneously by cutting off essential services.</p>
+                </div>
+                <div class="glass-card feature-card warning">
+                    <div class="icon">⚠️</div>
+                    <h3>Physical Harm</h3>
+                    <p>Attacking life-support systems in hospitals, traffic lights, or water plants causes real-world casualties.</p>
+                </div>
+                <div class="glass-card feature-card warning">
+                    <div class="icon">📢</div>
+                    <h3>Political Motive</h3>
+                    <p>The goal is to create widespread panic or intimidate a government to achieve ideological aims.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Defense Section -->
+        <section id="defense" class="lab-section fade-in">
+            <br><br>
+            <h2 class="section-title">Critical Infrastructure Defense</h2>
+            <div class="malware-grid">
+                <div class="glass-card defense-card">
+                    <div class="icon">🧱</div>
+                    <h3>Air Gapping</h3>
+                    <p>Physically isolating critical control networks from the public internet to prevent remote access.</p>
+                </div>
+                <div class="glass-card defense-card">
+                    <div class="icon">🧠</div>
+                    <h3>Anomaly Detection</h3>
+                    <p>AI systems that monitor "normal" electrical patterns and block any commands that look like sabotage.</p>
+                </div>
+                <div class="glass-card defense-card">
+                    <div class="icon">🔄</div>
+                    <h3>Redundancy</h3>
+                    <p>Mechanical fail-safes that don't rely on software to prevent physical damage if the system is hacked.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Cyber Terrorism Lab | Avanish Kumar</p>
+    </footer>
+
+    <!-- Educational Modal -->
+    <div id="edu-modal" class="modal-overlay">
+        <div class="modal-content glass-card">
+            <div class="modal-header">
+                <span class="modal-icon">🏚️</span>
+                <h3>CRITICAL INFRASTRUCTURE COLLAPSE</h3>
+            </div>
+            <div class="modal-body">
+                <p id="modal-message">The grid has been sabotaged. This is the goal of cyber terrorism: to cause widespread chaos and physical danger by disabling the systems we rely on for survival.</p>
+            </div>
+            <div class="modal-footer">
+                <button id="close-modal" class="modal-btn">Analyze Impact</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

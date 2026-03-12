@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DoS & DDoS Lab | Interactive Simulation</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@300;500;700&family=Space+Mono&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="cursor-glow"></div>
+    <div class="grid-background"></div>
+
+    <nav class="glass-nav">
+        <div class="logo">DOS<span>LAB</span></div>
+        <ul class="nav-links">
+            <li><a href="../index.html">← Back to Hub</a></li>
+            <li><a href="#simulate" class="active">Simulate</a></li>
+            <li><a href="#differences">DoS vs DDoS</a></li>
+            <li><a href="#mitigation">Mitigation</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <header class="lab-header fade-in">
+            <h1>DoS & DDoS Simulation</h1>
+            <p class="subtitle">Experience how high-volume traffic affects server infrastructure.</p>
+        </header>
+
+        <!-- Simulation Section -->
+        <section id="simulate" class="lab-section fade-in">
+            <div class="sim-container">
+                <!-- Server View -->
+                <div class="glass-card server-status-card">
+                    <div class="server-visual">
+                        <div class="server-node" id="target-server">
+                            <div class="logic-core"></div>
+                            <div class="shield"></div>
+                        </div>
+                        <div class="health-ring" id="health-ring"></div>
+                    </div>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <span class="label">Server Status</span>
+                            <span class="value" id="status-text">HEALTHY</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="label">Latency</span>
+                            <span class="value" id="latency-text">24ms</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="label">CPU Load</span>
+                            <div class="progress-bar">
+                                <div class="fill" id="cpu-fill"></div>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <span class="label">Requests/sec</span>
+                            <span class="value" id="rps-text">0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Control Panel -->
+                <div class="glass-card controls-card">
+                    <h3>Attack Control Panel</h3>
+                    <div class="mode-toggle">
+                        <button class="mode-btn active" data-mode="dos">Single Source (DoS)</button>
+                        <button class="mode-btn" data-mode="ddos">Distributed (DDoS)</button>
+                    </div>
+                    <div class="control-group">
+                        <label>Attack Intensity</label>
+                        <input type="range" id="attack-power" min="0" max="100" value="0"
+                            title="Adjust Attack Intensity">
+                        <div class="range-labels">
+                            <span>Idle</span>
+                            <span>Critical</span>
+                        </div>
+                    </div>
+                    <div class="action-buttons">
+                        <button id="start-attack" class="btn primary">Launch Attack</button>
+                        <button id="reset-sim" class="btn secondary">Reset Server</button>
+                    </div>
+                    <div class="terminal-mini">
+                        <div id="log-output">> System initialized... awaiting input.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Differences Section -->
+        <section id="differences" class="lab-section fade-in">
+            <h2 class="section-title">DoS vs DDoS: The Key Differences</h2>
+            <div class="differences-grid">
+                <div class="glass-card compare-card">
+                    <div class="icon">💻</div>
+                    <h3>DoS (Denial of Service)</h3>
+                    <p>A single computer and internet connection are used to flood a targeted server with packets.</p>
+                    <ul class="tag-list">
+                        <li>One Source</li>
+                        <li>Easier to Block (IP Ban)</li>
+                        <li>Lower Bandwidth</li>
+                    </ul>
+                </div>
+                <div class="glass-card compare-card highlight">
+                    <div class="icon">🕸️</div>
+                    <h3>DDoS (Distributed DoS)</h3>
+                    <p>Multiple computers (often a Botnet) are used to attack the target simultaneously from multiple
+                        locations.</p>
+                    <ul class="tag-list">
+                        <li>Many Sources (Botnet)</li>
+                        <li>Difficult to Distinguish</li>
+                        <li>Massive Bandwidth</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mitigation Section -->
+        <section id="mitigation" class="lab-section fade-in">
+            <br><br>
+            <h2 class="section-title">Defense & Mitigation</h2>
+            <div class="malware-grid">
+                <div class="glass-card defense-card">
+                    <div class="icon">🛡️</div>
+                    <h3>WAF & Firewalls</h3>
+                    <p>Web Application Firewalls filter and monitor HTTP traffic to and from a web application.</p>
+                </div>
+                <div class="glass-card defense-card">
+                    <div class="icon">☁️</div>
+                    <h3>CDN Scrubbing</h3>
+                    <p>Services like Cloudflare absorb massive traffic and "scrub" it to ensure only clean traffic
+                        reaches your server.</p>
+                </div>
+                <div class="glass-card defense-card">
+                    <div class="icon">⚖️</div>
+                    <h3>Load Balancing</h3>
+                    <p>Distributing incoming network traffic across a group of backend servers to prevent any single
+                        server from becoming overwhelmed.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 DoS & DDoS Lab | Avanish Kumar</p>
+    </footer>
+
+    <!-- Custom Educational Modal -->
+    <div id="edu-modal" class="modal-overlay">
+        <div class="modal-content glass-card">
+            <div class="modal-header">
+                <span class="modal-icon">💡</span>
+                <h3>Educational Insight</h3>
+            </div>
+            <div class="modal-body">
+                <p id="modal-message">The server has crashed because it could not handle the volume of requests. Notice
+                    how the DDoS attack from multiple sources caused latency to skyrocket before the shutdown.</p>
+            </div>
+            <div class="modal-footer">
+                <button id="close-modal" class="modal-btn">I Understand</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

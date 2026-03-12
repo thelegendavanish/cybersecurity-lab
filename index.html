@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Security Lab | Interactive Presentation</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@300;500;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="cursor-glow"></div>
+    <div class="grid-background"></div>
+
+    <nav class="glass-nav">
+        <div class="logo">CYBER<span>LAB</span></div>
+        <ul class="nav-links">
+            <li><a href="#intro" class="active">Intro</a></li>
+            <li><a href="#malware">Malware</a></li>
+            <li><a href="#crimes">Cyber Crimes</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="intro" class="hero fade-in">
+            <div class="container">
+                <h1 class="glitch" data-text="Introduction to Cyber Security">Introduction to Cyber Security</h1>
+                <p class="subtitle">Protecting the digital frontier in an era of evolving threats.</p>
+
+                <div class="glass-card main-intro">
+                    <h2>What is Cyber Security?</h2>
+                    <p>Cyber security is the practice of protecting systems, networks, and programs from digital
+                        attacks. These cyberattacks are usually aimed at accessing, changing, or destroying sensitive
+                        information; extorting money from users via ransomware; or interrupting normal business
+                        processes.</p>
+                </div>
+
+                <div class="need-grid">
+                    <div class="glass-card stat-card">
+                        <h3>The Need</h3>
+                        <p>In today's connected world, everyone benefits from advanced cyber-defense programs. At an
+                            individual level, a cybersecurity attack can result in everything from identity theft, to
+                            extortion attempts, to the loss of important data like family photos.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="malware" class="section">
+            <div class="container">
+                <h2 class="section-title">Malware & Its Types</h2>
+                <div class="malware-grid">
+                    <!-- Cards will be populated or styled here -->
+                    <div class="glass-card malware-card" data-tilt>
+                        <div class="icon">🚫</div>
+                        <h3>Adware</h3>
+                        <p>Software that generates revenue for its developer by automatically generating online
+                            advertisements in the user interface.</p>
+                    </div>
+                    <div class="glass-card malware-card" data-tilt>
+                        <div class="icon">🕵️</div>
+                        <h3>Spyware</h3>
+                        <p>Malicious software that enters a user's computer, gathers data from the device and user, and
+                            sends it to third parties without consent.</p>
+                    </div>
+                    <div class="glass-card malware-card" data-tilt>
+                        <div class="icon">🦠</div>
+                        <h3>Virus</h3>
+                        <p>A type of program that, when executed, replicates itself by modifying other computer programs
+                            and inserting its own code.</p>
+                    </div>
+                    <div class="glass-card malware-card" data-tilt>
+                        <div class="icon">🪱</div>
+                        <h3>Worms</h3>
+                        <p>Standalone malware computer program that replicates itself in order to spread to other
+                            computers.</p>
+                    </div>
+                    <div class="glass-card malware-card" data-tilt>
+                        <div class="icon">🐴</div>
+                        <h3>Trojan-horse</h3>
+                        <p>Any malware which misleads users of its true intent. Often looks like legitimate software but
+                            performs malicious actions.</p>
+                    </div>
+                    <div class="glass-card malware-card" data-tilt>
+                        <div class="icon">😨</div>
+                        <h3>Scareware</h3>
+                        <p>A form of malware which uses social engineering to cause shock, anxiety, or the perception of
+                            a threat in order to manipulate users into buying unwanted software.</p>
+                    </div>
+                    <div class="glass-card malware-card" data-tilt>
+                        <div class="icon">🌐</div>
+                        <h3>Browser Hacking</h3>
+                        <p>Malicious software that changes a browser's settings without the user's permission and
+                            redirects the user to websites they did not intend to visit.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="crimes" class="section">
+            <div class="container">
+                <h2 class="section-title">Cyber Crime & Its Kinds</h2>
+                <div class="crimes-container">
+                    <div class="crimes-sidebar">
+                        <button class="crime-btn active" data-target="social">Social & Personal</button>
+                        <button class="crime-btn" data-target="technical">Technical Attacks</button>
+                        <button class="crime-btn" data-target="financial">Financial & Legal</button>
+                    </div>
+                    <div class="crimes-content glass-card">
+                        <div id="social" class="crime-category active">
+                            <div class="crime-item">
+                                <h4>Cyber Stalking</h4>
+                                <p>The use of the Internet or other electronic means to stalk or harass an individual,
+                                    group, or organization.</p>
+                            </div>
+                            <div class="crime-item">
+                                <h4>Child Pornography</h4>
+                                <p>The visual depiction of children in sexually explicit situations, a grave violation
+                                    of human rights and a serious crime.</p>
+                            </div>
+                            <div class="crime-item">
+                                <h4>Software Piracy & IPRs</h4>
+                                <p>Unauthorized copying, distribution, or use of software; and crimes related to
+                                    Intellectual Property Rights.</p>
+                            </div>
+                        </div>
+                        <div id="technical" class="crime-category">
+                            <div class="crime-item">
+                                <h4>Cyber Terrorism</h4>
+                                <p>The use of computer-based weapons to disrupt infrastructure or conduct attacks that
+                                    result in violence or significant financial loss.</p>
+                                <a href="terrorism/index.html" class="lab-link neon-btn">Launch Interactive Lab →</a>
+                            </div>
+                            <div class="crime-item">
+                                <h4>Phishing</h4>
+                                <p>Fraudulent practice of sending emails purporting to be from reputable companies to
+                                    induce individuals to reveal personal information.</p>
+                                <a href="phishing/index.html" class="lab-link neon-btn">Launch Interactive Lab →</a>
+                            </div>
+                            <div class="crime-item">
+                                <h4>Denial of Service (DoS)</h4>
+                                <p>An attack intended to make a network resource unavailable to its intended users by
+                                    temporarily disrupting services of a host connected to the Internet.</p>
+                                <a href="dos/index.html" class="lab-link neon-btn">Launch Interactive Lab →</a>
+                            </div>
+                            <div class="crime-item">
+                                <h4>Cross Site Scripting (XSS)</h4>
+                                <p>Injecting malicious scripts into benign and trusted websites to execute in the
+                                    victim's browser.</p>
+                                <a href="xss/index.html" class="lab-link neon-btn">Launch Interactive Lab →</a>
+                            </div>
+                            <div class="crime-item">
+                                <h4>Logic Bombs</h4>
+                                <p>A string of code intentionally inserted into a software system that will set off a
+                                    malicious function when specified conditions are met.</p>
+                                <a href="logic/index.html" class="lab-link neon-btn">Launch Interactive Lab →</a>
+                            </div>
+                            <div class="crime-item">
+                                <h4>Computer Hacking</h4>
+                                <p>Identifying and exploiting vulnerabilities in a computer system or network.</p>
+                                <a href="hacking/index.html" class="lab-link neon-btn">Launch Interactive Lab →</a>
+                            </div>
+                            <div class="crime-item">
+                                <h4>Computer Vandalism</h4>
+                                <p>The act of modifying, damaging, or destroying data or computer systems without
+                                    authorization.</p>
+                                <a href="vandalism/index.html" class="lab-link neon-btn">Launch Interactive Lab →</a>
+                            </div>
+                        </div>
+                        <div id="financial" class="crime-category">
+                            <div class="crime-item">
+                                <h4>Online Auction Fraud</h4>
+                                <p>Deceptive tactics used to gain an unfair advantage or swindle money in an auction setting.</p>
+                                <a href="auction/index.html" class="lab-link neon-btn">Launch Interactive Lab →</a>
+                            </div>
+                            <div class="crime-item">
+                                <h4>Cyber-squatting</h4>
+                                <p>Registering, trafficking, or using domain names with intent to profit from a trademark's goodwill.</p>
+                                <a href="squatting/index.html" class="lab-link neon-btn">Launch Interactive Lab →</a>
+                            </div>
+                            <div class="crime-item">
+                                <h4>Salami Attack</h4>
+                                <p>A series of many minor fraudulent attacks that together result in a significant
+                                    problem. E.g., stealing exactly ₹1 from thousands of bank accounts.</p>
+                                <a href="salami/index.html" class="lab-link neon-btn">Launch Interactive Lab →</a>
+                            </div>
+                            <div class="crime-item">
+                                <h4>Data Diddling</h4>
+                                <p>The unauthorized altering of data before or during entry into a computer system,
+                                    usually to commit fraud.</p>
+                                <a href="diddling/index.html" class="lab-link neon-btn">Launch Interactive Lab →</a>
+                            </div>
+                            <div class="crime-item">
+                                <h4>Email Spoofing</h4>
+                                <p>The creation of email messages with a forged sender address to mislead the recipient
+                                    about the origin of the message.</p>
+                                <a href="spoofing/index.html" class="lab-link neon-btn">Launch Interactive Lab →</a>
+                            </div>
+                            <div class="crime-item">
+                                <h4>Internet Time Theft</h4>
+                                <p>Unauthorized use of someone else's internet connection or prepaid time for one's own benefit.</p>
+                                <a href="itt/index.html" class="lab-link neon-btn">Launch Interactive Lab →</a>
+                            </div>
+                            <div class="crime-item">
+                                <h4>Spamming</h4>
+                                <p>Unsolicited sending of bulk emails to several recipients.</p>
+                                <a href="spamming/index.html" class="lab-link neon-btn">Launch Interactive Lab →</a>
+                            </div>
+                            <div class="crime-item">
+                                <h4>Forgery & Counterfeiting</h4>
+                                <p>The creation or alteration of electronic documents or digital signatures with the
+                                    intent to defraud.</p>
+                                <a href="forgery/index.html" class="lab-link neon-btn">Launch Interactive Lab →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Interactive Cyber Security Lab Presentation</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

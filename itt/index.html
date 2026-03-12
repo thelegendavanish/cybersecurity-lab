@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internet Time Theft Lab | Interactive Simulation</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@300;500;700&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="cursor-glow"></div>
+    <div class="network-grid"></div>
+
+    <nav class="glass-nav">
+        <div class="logo">TIME<span>STEAL</span></div>
+        <ul class="nav-links">
+            <li><a href="../index.html">← Back to Hub</a></li>
+            <li><a href="#simulate" class="active">Leech Console</a></li>
+            <li><a href="#impact">Impact</a></li>
+            <li><a href="#prevention">Prevention</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <header class="lab-header fade-in">
+            <h1>Internet Time Theft</h1>
+            <p class="subtitle">Simulate unauthorized bandwidth usage and observe the resource drain on victims.</p>
+        </header>
+
+        <!-- Simulation Section -->
+        <section id="simulate" class="lab-section fade-in">
+            <div class="sim-grid">
+                <!-- Leech Console -->
+                <div class="glass-card console-module">
+                    <div class="module-header">
+                        <span class="icon">📡</span>
+                        <h3>Bandwidth Leech Console</h3>
+                    </div>
+
+                    <div class="wifi-scanner">
+                        <button id="scan-btn" class="btn-primary">SCAN NEARBY NETWORKS</button>
+                        <div id="wifi-list" class="wifi-list">
+                            <div class="placeholder-text">Click scan to find vulnerable connections.</div>
+                        </div>
+                    </div>
+
+                    <div id="leech-controls" class="leech-controls disabled">
+                        <div class="control-header">
+                            <p>Leech Intensity: <span id="leech-val">0%</span></p>
+                        </div>
+                        <input type="range" id="leech-slider" min="0" max="100" value="0" disabled>
+                        <div class="leech-stats">
+                            <div class="stat">Theft Rate: <span id="theft-rate">0 Mbps</span></div>
+                            <div class="stat">Connected To: <span id="target-ssid" class="aqua-text">None</span></div>
+                        </div>
+                    </div>
+
+                    <button id="kill-connection" class="btn secondary" disabled>CEASE OPERATION</button>
+                </div>
+
+                <!-- Victim Impact Panel -->
+                <div class="glass-card victim-panel">
+                    <div class="module-header">
+                        <span class="icon">👤</span>
+                        <h3>Victim's Connection Hub</h3>
+                    </div>
+
+                    <div class="victim-viz">
+                        <div class="video-preview">
+                            <div id="buffer-overlay" class="buffer-overlay">
+                                <div class="spinner"></div>
+                                <p>Lagging...</p>
+                            </div>
+                            <div class="video-content">
+                                <div class="play-btn">▶</div>
+                                <div class="video-bars">
+                                    <span></span><span></span><span></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="buffer-stats">
+                            <p class="sm-text">Buffer Health</p>
+                            <div class="progress-bar">
+                                <div id="buffer-bar" class="progress-fill" style="width: 100%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="financial-impact">
+                        <div class="impact-stat">Data Credit Remaining: <span id="victim-data">1024 MB</span></div>
+                        <div class="impact-stat">Bill Increment: <span id="victim-bill" class="danger">₹0</span></div>
+                    </div>
+
+                    <div class="network-log">
+                        <p class="sm-text">System Alerts</p>
+                        <div id="alert-logs" class="logs-container">
+                            <div class="log system">Network status: STABLE</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Impact Section -->
+        <section id="impact" class="lab-section fade-in">
+            <h2 class="section-title">The Toll of Time Theft</h2>
+            <div class="concept-grid">
+                <div class="glass-card feature-card">
+                    <div class="icon">🐢</div>
+                    <h3>QoS Degradation</h3>
+                    <p>Unauthorized usage eats into the Quality of Service. Bandwidth caps are reached faster, causing
+                        slow speeds for legitimate users.</p>
+                </div>
+                <div class="glass-card feature-card">
+                    <div class="icon">💸</div>
+                    <h3>Economic Drain</h3>
+                    <p>In many regions, internet is sold by time or volume. Stealing time is a direct financial theft
+                        from the account holder.</p>
+                </div>
+                <div class="glass-card feature-card">
+                    <div class="icon">⚖️</div>
+                    <h3>Legal Violation</h3>
+                    <p>Unauthorized access to computer networks (WLAN) is illegal under IT laws and can lead to heavy
+                        fines or imprisonment.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Prevention Section -->
+        <section id="prevention" class="lab-section fade-in">
+            <br><br>
+            <h2 class="section-title">Securing Your Connection</h2>
+            <div class="malware-grid">
+                <div class="glass-card defense-card">
+                    <div class="icon">🔑</div>
+                    <h3>WPA3 Encryption</h3>
+                    <p>Ensure your router uses the latest encryption standards. Avoid using WEP or WPA as they are
+                        easily cracked.</p>
+                </div>
+                <div class="glass-card defense-card">
+                    <div class="icon">🚫</div>
+                    <h3>MAC Filtering</h3>
+                    <p>Configure your network to only allow specific physical device addresses (MACs) to connect,
+                        blocking strangers.</p>
+                </div>
+                <div class="glass-card defense-card">
+                    <div class="icon">📶</div>
+                    <h3>Disable SSID Broadcast</h3>
+                    <p>Hiding your network name makes it harder for casual wardrivers to find and target your
+                        connection.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Internet Time Theft Lab | Avanish Kumar</p>
+    </footer>
+
+    <!-- Access Denied Modal -->
+    <div id="access-modal" class="modal-overlay">
+        <div class="modal-content glass-card danger-theme">
+            <div class="modal-header">
+                <span class="icon">🛡️</span>
+                <h3>ACCESS DENIED</h3>
+            </div>
+            <div class="modal-body">
+                <p>The selected network is secured with <strong>WPA3 Encryption</strong>. Your current exploits are
+                    unable to bypass this security layer.</p>
+                <div class="security-info">
+                    <p class="sm-text">Recommendation: Use a VPN or look for an unsecured (open) network.</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="close-access" class="modal-btn">Acknowledged</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

